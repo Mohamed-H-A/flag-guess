@@ -1,0 +1,29 @@
+<app-search></app-search>
+<ul>
+    <li *ngFor="let country of countries">
+        <a routerLink="/country/{{country.id}}">
+            <img [src]="country.flagUrl" [alt]="country.name"/>
+            <div class="content">
+
+                <div class="name">
+                    {{country.name}}
+                </div>
+                <div class="country-footer">
+                    
+                    <div class="population">
+                      <span>👨‍👩‍👧‍👦 Population: {{country.population | number}}</span>
+                    </div>
+
+                    <div class="currency">
+                        <span>💵 Currency: {{country.currency}}</span>
+                        
+                    </div>
+
+                    <div class="capital">
+                        <span>🏙️ Capital city: {{country.capital}}</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
