@@ -4,24 +4,31 @@ import { CountryService } from '../../../services/country.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SearchComponent } from "../../partials/search/search.component";
+import { NotFoundComponent } from "../../partials/not-found/not-found.component";
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-home',
     standalone: true,
     templateUrl: './home.component.html',
     styleUrl: './home.component.css',
-    imports: [RouterModule, CommonModule, SearchComponent]
+    imports: [RouterModule, CommonModule, SearchComponent, NotFoundComponent]
 })
 export class HomeComponent {
   countries: Country[] = [];
 
   constructor(private countryService: CountryService, activated: ActivatedRoute) {
+    let countryObservable: Observable<Country[]>;
+
     activated.params.subscribe((params) => {
       if (params['searchTerm']) {
-        this.countries = this.countryService.getAllCountriesBySearch(params['searchTerm']);
+        countryObservable = this.countryService.getAllCountriesBySearch(params['searchTerm']);
       } else {
-        this.countries = countryService.getAll();
+        countryObservable = countryService.getAll();
       }
+      countryObservable.subscribe((serverCountries) => {
+        this.countries = serverCountries;
+      })
     })
   }
 

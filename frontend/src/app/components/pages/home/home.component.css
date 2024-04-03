@@ -1,3 +1,10 @@
+.header{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 2rem;
+}
+
 ul{
     display: flex;
     justify-content: center;
@@ -15,7 +22,9 @@ li a{
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  color: #3aa45c;
+  color: #319952;
+  background-color: #e1f2e6;
+  font-size: 1.5rem;
 }
 
 li a:hover{
@@ -24,7 +33,14 @@ li a:hover{
 }
   
 li a img{
-    object-fit:cover;
+    object-fit: cover;
+    height: 14.5rem;
+    padding: 0.3rem;
+    border-radius: 1rem;
+  }
+
+li a img:hover{
+    object-fit: contain;
     height: 14.5rem;
   }
   
@@ -48,7 +64,7 @@ li a img{
     border-radius: 1rem;
     background-color: whitesmoke;
     display: inline-block;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     color: grey;
     margin-right: 0.3rem;
     padding: 0.5rem 0.5rem;

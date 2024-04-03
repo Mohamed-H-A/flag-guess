@@ -1,4 +1,6 @@
 <app-search></app-search>
+<span class="header">Learn the flags! <br> (Hover over flag to view in original aspect ratio)</span>
+<app-not-found [visible]="!countries || !countries.length" resetLinkText="Reset Search"></app-not-found>
 <ul>
     <li *ngFor="let country of countries">
         <a routerLink="/country/{{country.id}}">

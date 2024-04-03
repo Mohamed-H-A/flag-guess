@@ -1,0 +1,27 @@
+<div class="container">
+    <img [src]="country.flagUrl" [alt]="country.name"/>
+  
+    <div class="details">
+        <div class="header">
+          <span class="name">
+            {{country.name}}
+          </span>
+        </div>
+        <div class="tags">
+            <a *ngFor="let tag of country.tags">
+              {{tag}}
+            </a>
+        </div>
+        <div class="population">
+          <span>Population of approx. ~{{country.population | number}} people</span>
+        </div>
+
+        <div class="currency">
+            <span>The official currency is {{country.currency}}</span>           
+        </div>
+
+        <div class="capital">
+            <span>The capital city is {{country.capital}}</span>
+        </div>
+    </div>
+</div>
