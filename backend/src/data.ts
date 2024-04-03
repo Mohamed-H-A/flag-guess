@@ -36,3 +36,20 @@ export const sample_countries: any[] = [
         tags: ['Europe']
       },
 ]
+
+export const sample_users: any[] = [
+  {
+    name: "John Doe",
+    username: "john@gmail.com",
+    password: "12345",
+    address: "Toronto On",
+    isAdmin: true,
+  },
+  {
+    name: "Jane Doe",
+    username: "Jane@gmail.com",
+    password: "12345",
+    address: "Shanghai",
+    isAdmin: false,
+  },
+];
