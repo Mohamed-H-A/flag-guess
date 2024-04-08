@@ -42,14 +42,14 @@ export const sample_users: any[] = [
     name: "John Doe",
     username: "john@gmail.com",
     password: "12345",
-    address: "Toronto On",
+    highscore: "5",
     isAdmin: true,
   },
   {
     name: "Jane Doe",
     username: "Jane@gmail.com",
     password: "12345",
-    address: "Shanghai",
+    highscore: "7",
     isAdmin: false,
   },
 ];

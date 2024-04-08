@@ -1,0 +1,12 @@
+body {
+    background:black;text-align:center;margin-top:20px;
+}
+#worldmap {
+    margin:0 auto;
+}
+#worldmap svg {
+    background:#D7FCFD;border-radius: 200px;box-shadow:0 0 10px rgba(0,0,0,0.4);
+}
+.land {
+    fill: #3aa45c;
+}

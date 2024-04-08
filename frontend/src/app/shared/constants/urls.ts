@@ -5,3 +5,4 @@ export const COUNTRIES_BY_SEARCH = COUNTRIES_URL + '/search/'
 export const COUNTRIES_BY_ID = COUNTRIES_URL + '/'
 
 export const USER_LOGIN_URL = BASE_URL + '/api/users/login'
+export const USER_REGISTER_URL = BASE_URL + '/api/users/register'

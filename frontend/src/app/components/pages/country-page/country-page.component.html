@@ -1,5 +1,8 @@
-<div class="container">
-    <img [src]="country.flagUrl" [alt]="country.name"/>
+<app-not-found [visible]="!country" resetLinkText="Back to Homepage"></app-not-found>
+<div *ngIf="country" class="container">
+    <div class="flag">
+      <img [src]="country.flagUrl" [alt]="country.name"/>
+    </div>
   
     <div class="details">
         <div class="header">

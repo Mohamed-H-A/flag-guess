@@ -3,7 +3,9 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 import { AbstractControl } from '@angular/forms';
 
 const VALIDATOR_MESSAGES: any = {
-  required: 'Should not be empty'
+  required: 'Should not be empty',
+  minlength: 'Entry is too short',
+  notMatch: 'Passwords do not match'
 }
 
 @Component({
