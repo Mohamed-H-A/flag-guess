@@ -1,0 +1,40 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+    margin-top: 0.5rem;
+    color: #3aa45c;
+}
+
+.map{
+    width: 95vw;
+    height: 80vh;
+    margin-bottom: 1rem;
+    border: 5px dashed #3aa54c;
+}
+
+.find-location{
+    position: absolute;
+    margin: auto;
+    width: 10rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: #3aa45c;
+    top: 0.5rem;
+    right: 0.5rem;
+    z-index: 10000;
+    background-color: #ffffff7c;
+    cursor: pointer;
+    border: 3px groove #3aa45c;
+    border-radius: 1rem;
+}
+
+.find-location:hover{
+    background-color: white;
+}

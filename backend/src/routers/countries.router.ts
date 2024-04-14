@@ -1,7 +1,6 @@
 import { Router } from 'express';
-import { sample_countries } from '../data';
 import asyncHandler from 'express-async-handler';
-import { CountryModel } from '../models/country.model';
+import { CountryModel, getCountriesFromAPI } from '../models/country.model';
 const router = Router();
 
 router.get("/seed", asyncHandler(
@@ -11,7 +10,8 @@ router.get("/seed", asyncHandler(
             res.send("Seed already completed")
             return
         }
-        await CountryModel.create(sample_countries)
+        const countries = await getCountriesFromAPI()
+        await CountryModel.create(countries)
         res.send("Seed now completed")
     }
 ))
@@ -28,6 +28,15 @@ router.get("/search/:searchTerm", asyncHandler(
         const seachRegex = new RegExp(req.params.searchTerm, 'i')
         const countries = await CountryModel.find({name: {$regex: seachRegex}})
         res.send(countries)
+    }
+))
+
+router.get("/random", asyncHandler(
+    async (req, res) => {
+        const random_country = await CountryModel.aggregate([{ $addFields: { random: { $rand: {} } } },
+            { $sort: { random: 1 } },
+            { $limit: 1 }, { $addFields: { id: '$_id' } }])
+        res.send(random_country[0])
     }
 ))
 

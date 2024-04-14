@@ -10,7 +10,7 @@ import { loadingInterceptor } from './shared/interceptors/loading.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideClientHydration(), provideHttpClient(withFetch(), withInterceptors([loadingInterceptor])), importProvidersFrom(ToastrModule.forRoot({
-    timeOut:3000,
+    timeOut:10000,
     positionClass:'toast-bottom-right',
     newestOnTop:false
   })), provideAnimations()]

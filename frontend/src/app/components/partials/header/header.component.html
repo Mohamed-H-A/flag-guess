@@ -1,8 +1,11 @@
 <header>
-    <div class="container">
-        <a routerLink="/"  class="logo">Guess the Flag!</a>
+    <div class="container" (scroll)="onscroll()" [ngClass]="fixedHeader ? 'fixed' : 'sticky'">
+        <a routerLink="/" class="logo">Guess the Flag!</a>
         <nav>
             <ul>
+                <a routerLink="/guess">Play</a>
+                <a routerLink="/scoreboard">Scoreboard</a>
+                <a routerLink="/map">Map</a>
                 <li *ngIf="auth" class="nav-container">
                     <a routerLink="/dashboard">{{user.name}}</a>
                     <div class="nav">
@@ -13,6 +16,7 @@
                 <li>
                     <a *ngIf="!auth" routerLink="/login">Login</a>
                 </li>
+                <a routerLink="/about">About</a>
             </ul>
         </nav>
     </div>

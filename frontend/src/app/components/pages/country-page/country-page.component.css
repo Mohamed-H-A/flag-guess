@@ -6,7 +6,8 @@
     margin: 3rem;
     background-color: #3aa45c14;
     border-radius: 1rem;
-  }
+    padding: 1rem;
+}
   
   .container > *{
     min-width: 20rem;
@@ -47,33 +48,41 @@ img {
     font-weight: bold;
 }
 
-.tags{
+.continents{
     display: flex;
     flex-wrap: wrap;
   }
   
-  .tags a{
+.continents a{
     background-color: #f0f0f0;
     padding: 0.3rem 1rem;
     margin: 0.2rem 0.15rem;
     border-radius: 10rem;
-    font-weight: 600;
-    color: #3aa45c;
+    font-weight: bold;
+    color: #2baf55;
+}
+
+.facts{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 1rem 1rem 1rem 0;
+    color: green;
+}
+
+  .links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    background-color: #3aa45c42;
+    border-radius: 1rem;
   }
 
-  .population{
-    font-size: 1.5rem;
-    margin: 1rem 1rem 1rem 0;
-    color: green;
-  }
-
-  .currency{
-    font-size: 1.5rem;
-    margin: 1rem 1rem 1rem 0;
-    color: green;
-  }
-  .capital{
-    font-size: 1.5rem;
-    margin: 1rem 1rem 1rem 0;
-    color: green;
+  .links a {
+    padding: 1rem;
+    color: purple;
+    margin: 0 6rem;
+    font-size: 1.3rem;
+    font-weight: bold;
   }

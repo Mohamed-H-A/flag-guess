@@ -1,0 +1,151 @@
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+    height: 100%;
+    margin: 1rem;
+}
+
+.details{
+    background-color: #3aa45c29;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    white-space: pre-wrap;
+}
+
+.right {
+    background-color: #3aa45c29;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+    
+}
+
+.right .score {
+    margin: 1rem;
+    color: #e1bf00;
+}
+.right .lives {
+    margin: 1rem;
+    color: #dc5800;
+}
+.right .add {
+    margin: 1rem;
+    color: #2cff10;
+}
+
+.left {
+    background-color: #3aa45c29;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+    text-align: center;
+    
+}
+
+.flag {
+    width: fit-content + 5rem;
+    border-left: 5px solid #000000;
+    padding-bottom: 5rem;
+    padding-top: 0.5rem;
+    
+}
+
+img {
+    object-fit: contain;
+    height: 8rem;
+}
+
+.output {
+    color: #dc5f00;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.hints {
+    color:#009211;
+}
+
+
+input{
+    border-radius: 1.5rem 0 0 1.5rem;
+    border: none;
+    height: 3rem;
+    width: 20rem;
+    background-color: #f1f1f1;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    outline: none;
+}
+
+a {
+    /* border: 5px solid black; */
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1rem;
+    display: flex;
+    color: #424242;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+button {
+    color: grey;
+    height: 3rem;
+    width: 25rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: #18863b;
+    color: white;
+    opacity: 0.8;
+    outline: none;
+    transition: 0.2s linear;
+}
+
+button:hover {
+    border-radius: 0.7rem;
+    background-color: #0baf3f;
+}
+ 
+.input{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+} 
+
+.input button{
+    color: grey;
+    height: 3rem;
+    width: 5rem;
+    font-size: 1rem;
+    border-radius: 0 1.5rem 1.5rem 0;
+    border: none;
+    background-color: #3aa45c;
+    color: white;
+    opacity: 0.8;
+    outline: none;
+}
+  
+.input button:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+.proceed input {
+    width: 0;
+}
+    

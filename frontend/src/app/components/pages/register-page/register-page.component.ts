@@ -29,8 +29,7 @@ export class RegisterPageComponent implements OnInit {
       name: ['', [Validators.required, Validators.minLength(5)]],
       username: ['', [Validators.required, Validators.minLength(5)]],
       password: ['', [Validators.required, Validators.minLength(5)]],
-      confirmPassword: ['', [Validators.required, Validators.minLength(5)]],
-      highscore: ['', [Validators.required]]
+      confirmPassword: ['', [Validators.required, Validators.minLength(5)]]
     }, {
       validators: PasswordMatchValidator('password', 'confirmPassword')
     } as AbstractControlOptions)
@@ -51,7 +50,7 @@ export class RegisterPageComponent implements OnInit {
       username: form.username,
       password: form.password,
       confirmPassword: form.comfirmPassword,
-      highscore: form.highscore
+      highscore: 0
     }
     this.userService.register(user).subscribe(_ => {
         this.router.navigateByUrl(this.returnUrl)

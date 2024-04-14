@@ -2,7 +2,7 @@ export class User {
     id!: string;
     name!: string;
     username!: string;
-    highscore!: string;
+    highscore!: number;
     token!: string;
     isAdmin!: boolean;
 }

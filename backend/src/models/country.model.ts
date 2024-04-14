@@ -1,3 +1,4 @@
+import axios from "axios";
 import { Schema, model } from "mongoose";
 
 export interface Country {
@@ -7,7 +8,31 @@ export interface Country {
     currency: string;
     flagUrl: string;
     capital: string;
-    tags: string[];
+    continents: string[];
+    loc: number[]
+}
+
+export async function getCountriesFromAPI(): Promise<Country[]> {
+    const response = await axios.get("https://restcountries.com/v3.1/independent?status=true&fields=name,currencies,population,continents,capital,flags,latlng")
+    const res: any[] = response.data
+    return res.map((country, index) => {
+        const currencyCode: string = Object.keys(country.currencies)[0];
+        const currency: string = country.currencies[currencyCode].name.split(/\s+/).pop(); // United States Dollar -> Dollar
+        const capital: string = country.capital[0];
+        const continents = country.continents;
+        const loc = country.latlng
+    
+        return {
+          id: (index + 1).toString(),
+          name: country.name.common,
+          population: country.population,
+          currency: currency[0].toUpperCase() + currency.slice(1),  // Titlecase
+          flagUrl: country.flags.svg,
+          capital: capital,
+          continents: continents,
+          loc: loc
+        };
+      });
 }
 
 export const CountrySchema = new Schema<Country>(
@@ -17,7 +42,8 @@ export const CountrySchema = new Schema<Country>(
         currency: {type: String, required: true},
         flagUrl: {type: String, required: true},
         capital: {type: String, required: true},
-        tags: {type: [String]}
+        continents: {type: [String], required: true},
+        loc: {type: [Number], required: true}
     }, 
     {
         toJSON: {

@@ -32,4 +32,10 @@ export class HomeComponent {
     })
   }
 
+  randomCountry() {
+    const index: number =
+        Math.floor(Math.random() * this.countries.length);
+    return '/country/' + this.countries[index].id
+  }
+
 }

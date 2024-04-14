@@ -37,11 +37,13 @@ li a img{
     height: 14.5rem;
     padding: 0.3rem;
     border-radius: 1rem;
+    transition: 0.2s ease-out;
   }
 
 li a img:hover{
     object-fit: contain;
-    height: 14.5rem;
+    padding: 1rem;
+    height: 14.1rem;
   }
   
 .content{
@@ -69,4 +71,9 @@ li a img:hover{
     margin-right: 0.3rem;
     padding: 0.5rem 0.5rem;
     margin-top: 0.3rem;
+}
+
+p {
+  display: flex;
+  justify-content: space-around;
 }

@@ -5,7 +5,7 @@ export interface User {
     name: string;
     username: string;
     password: string;
-    highscore: string;
+    highscore: number;
     isAdmin: boolean;
 }
 
@@ -14,7 +14,7 @@ export const UserSchema = new Schema<User>(
         name: {type: String, required: true},
         username: {type: String, required: true, unique: true},
         password: {type: String, required: true},
-        highscore: {type: String, required: true},
+        highscore: {type: Number, required: true},
         isAdmin: {type: Boolean, required: true},
     }, 
     {

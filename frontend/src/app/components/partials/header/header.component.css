@@ -1,28 +1,43 @@
+.container {
+    border-bottom: 2px double #3aa45c;
+    background: white;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+}
+
 header {
     position: relative;
-    background: white;
+    z-index: 100000;
     padding: 0;
-    border-bottom: 2px double #3aa45c
+}
+.fixed {
+    position: fixed;
+    width: 100%;
+    transition: 0.2s linear;
+    top: 0px;
+}
+
+.sticky {
+    transition: 0.2s linear;
+    top: -50px;
 }
 
 a {
     color: #3aa45c;
+    border-radius: 0.3rem;
 }
 
 a:hover {
     background: #66d184;
+    transition: 0.15s linear;
     color: white;
     cursor: pointer;
 }
 
-.container {
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-}
-
 a.logo {
-    font-weight: bold;
+    font-weight: bolder;
     padding: 1rem;
 }
 
@@ -42,6 +57,7 @@ ul a{
 }
 
 .nav {
+    border-radius: 0.3rem;
     position: absolute;
     z-index: 1;
     background: whitesmoke;
@@ -50,9 +66,9 @@ ul a{
 
 .nav-container:hover .nav {
     display: block;
+    width: 140%;
 }
 
 .nav a {
     width: 100%;
-    min-width: 8rem;
 }

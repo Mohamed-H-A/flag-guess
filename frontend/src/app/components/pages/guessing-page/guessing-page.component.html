@@ -1,0 +1,32 @@
+<div *ngIf="country" class="container">
+    <div class="left">
+        <h3 class="hints">Hints:
+            <p *ngIf="lives === totalLives">{{hints[0]}} </p>
+            <p *ngIf="lives <= totalLives - 1">Hint 1: The currency of this country is the {{hints[totalLives-1]}} </p>
+            <p *ngIf="lives <= totalLives - 2">Hint 2: This country can be found in -> {{hints[totalLives-2]}} </p>
+            <p *ngIf="lives <= totalLives - 3">Hint 3: The capital of this country is {{hints[totalLives-3]}} </p>
+        </h3>
+    </div>
+    <div class="details">
+        <app-title title="Guess the Flag!"></app-title>
+        <div class="flag">
+            <img [src]="country.flagUrl"/>
+        </div>
+        <p class="output">{{outputMessage}}</p>
+        <div *ngIf="canProceed()" >
+            <a routerLink="/country/{{country.id}}" target="_blank">I've never heard of this country??🤨</a>
+            <button (click)="reset()">Finish</button>
+        </div>
+        
+        <div class="input" *ngIf="!canProceed()">
+            <input #s type="text" placeholder="What country is it..." (keyup.enter)="check(s.value); s.value=''" [value]=""/>
+            <button (click)="check(s.value); s.value=''">Check</button>
+        </div>
+        
+        
+    </div>
+    <div class="right">
+        <div class="lives">Lives: {{lives}}</div>
+        <div class="score">Score: {{score}}</div>
+    </div>
+</div>

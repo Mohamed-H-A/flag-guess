@@ -17,6 +17,7 @@ export class LoadingComponent {
     loadingService.isLoading.subscribe((isLoading) => {
       this.isLoading = isLoading
     })
+    loadingService.showLoading
   }
 
 }

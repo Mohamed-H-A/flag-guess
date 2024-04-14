@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CountryService } from '../../../services/country.service';
 import { Country } from '../../../shared/models/country';
 import { CommonModule } from '@angular/common';
@@ -8,7 +8,7 @@ import { NotFoundComponent } from '../../partials/not-found/not-found.component'
 @Component({
   selector: 'app-country-page',
   standalone: true,
-  imports: [CommonModule, NotFoundComponent],
+  imports: [CommonModule, NotFoundComponent, RouterModule],
   templateUrl: './country-page.component.html',
   styleUrl: './country-page.component.css'
 })

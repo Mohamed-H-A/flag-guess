@@ -1,0 +1,11 @@
+<div class="container">
+    <h1>Map Sandbox</h1>
+    <p>Click to explore the countries and oceans of Earth geographically. 
+        <br> 
+        Marker is currently at Coordinates: ({{loc[0]}}, {{loc[1]}}) ->
+        <a *ngIf="loc" [href]="googleMapsLink" target="_blank">View in Google Maps</a>
+    </p>
+    <div #map class="map">
+        <button class="find-location" (click)="findMyLocation()">Locate Me</button>
+    </div>
+</div>

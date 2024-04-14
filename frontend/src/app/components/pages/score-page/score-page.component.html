@@ -1,0 +1,21 @@
+<div class="container">
+  <app-title title="Scoreboard"></app-title>
+    <div class="details">
+      <table>
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Time</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let entry of scoreboard; let i = index">
+            <td>{{ entry.username }}</td>
+            <td>{{ formatDate(entry.createdAt) }}</td>
+            <td>{{ entry.highscore }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

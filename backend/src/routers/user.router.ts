@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 import asyncHandler from 'express-async-handler';
 import { User, UserModel } from '../models/user.model';
 import bcrypt from 'bcryptjs'
-import { HTTP_BAD_REQUEST } from '../constants/http_status'
+import { HTTP_BAD_REQUEST, HTTP_UNPROCESSABLE_ENTITY } from '../constants/http_status'
 
 const router = Router();
 
@@ -30,9 +30,9 @@ router.post("/login", asyncHandler(
         } else {
             res.status(HTTP_BAD_REQUEST).send({"message": "Invalid login details"})
         }
-    
+        
     }
-))
+    ))
 
 router.post("/register", asyncHandler(
     async (req, res) => {
@@ -62,7 +62,7 @@ const genTokRes = (user: User) => {
     const token = jwt.sign({
         username: user.username, 
         isAdmin: user.isAdmin
-    }, "JWTSECRETKEY", {
+    }, process.env.JWT_KEY!, {
         expiresIn: "30d"
     })
     return {

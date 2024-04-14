@@ -5,5 +5,6 @@ export class Country {
     currency!: string;
     flagUrl!: string;
     capital!: string;
-    tags?: string[];
+    continents!: string[];
+    loc!: number[];
 }

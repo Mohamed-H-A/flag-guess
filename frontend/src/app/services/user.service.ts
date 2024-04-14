@@ -23,6 +23,10 @@ export class UserService {
     this.userObservable = this.userSubject.asObservable();
    }
 
+   public get currentUser(): User{
+    return this.userSubject.value;
+  }
+
   login(userLogin: IUserLogin): Observable<User> {
     return this.http.post<User>(USER_LOGIN_URL, userLogin).pipe(
       tap({
@@ -58,6 +62,7 @@ export class UserService {
       })
     )
   }
+
 
   logout() {
     this.userSubject.next(new User());

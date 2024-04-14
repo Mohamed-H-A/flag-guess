@@ -10,21 +10,26 @@
             {{country.name}}
           </span>
         </div>
-        <div class="tags">
-            <a *ngFor="let tag of country.tags">
-              {{tag}}
+        <div class="continents">
+            <a href="https://en.wikipedia.org/wiki/{{continent}}" target="_blank" *ngFor="let continent of country.continents">
+              {{continent}}
             </a>
         </div>
-        <div class="population">
-          <span>Population of approx. ~{{country.population | number}} people</span>
+        <div class="facts">
+          Quick Facts: <br/><br/>
+          <span>- Population of approx. ~{{country.population | number}} people</span>
         </div>
 
-        <div class="currency">
-            <span>The official currency is {{country.currency}}</span>           
+        <div class="facts">
+            <span>- The official currency is the {{country.currency}}</span>           
         </div>
 
-        <div class="capital">
-            <span>The capital city is {{country.capital}}</span>
+        <div class="facts">
+            <span>- The capital city is {{country.capital}}</span>
         </div>
     </div>
-</div>
+    <div class="links">
+      <a href="https://en.wikipedia.org/wiki/{{country.name}}" target="_blank">Learn more about {{country.name}} here</a>
+      <a routerLink="/map/{{country.loc[0]}},{{country.loc[1]}}">Locate {{country.name}} in the map sandbox</a>
+    </div>
+  </div>

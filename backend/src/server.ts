@@ -5,6 +5,7 @@ import express from 'express'
 import countriesRouter from './routers/countries.router'
 import userRouter from './routers/user.router'
 import { dbConnect } from './configs/database.config'
+import scoreboardRouter from './routers/scoreboard.router'
 
 dbConnect();
 const app = express();
@@ -15,6 +16,7 @@ app.use(cors());
 
 app.use("/api/countries", countriesRouter)
 app.use("/api/users", userRouter)
+app.use("/api/scoreboard", scoreboardRouter)
 
 const port = 5000;
 app.listen(port, () => {
