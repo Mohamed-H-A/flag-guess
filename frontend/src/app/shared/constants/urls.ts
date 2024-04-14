@@ -1,4 +1,6 @@
-const BASE_URL = 'http://localhost:5000'
+import { environment } from "../../../environments/environment";
+
+const BASE_URL = environment.production ? '' : 'http://localhost:5000'
 
 export const COUNTRIES_URL = BASE_URL + '/api/countries'
 export const COUNTRIES_BY_SEARCH = COUNTRIES_URL + '/search/'

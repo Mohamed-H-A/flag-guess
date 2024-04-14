@@ -6,6 +6,7 @@ import countriesRouter from './routers/countries.router'
 import userRouter from './routers/user.router'
 import { dbConnect } from './configs/database.config'
 import scoreboardRouter from './routers/scoreboard.router'
+import path from 'path'
 
 dbConnect();
 const app = express();
@@ -18,7 +19,12 @@ app.use("/api/countries", countriesRouter)
 app.use("/api/users", userRouter)
 app.use("/api/scoreboard", scoreboardRouter)
 
-const port = 5000;
+app.use(express.static(path.join('public', 'browser')))
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname , 'public', 'browser', 'index.html'))
+})
+
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
     console.log("Website is on https://localhost:"+port);
 })

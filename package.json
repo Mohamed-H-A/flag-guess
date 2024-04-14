@@ -1,0 +1,9 @@
+{
+    "name": "flag-guess",
+    "version": "1.0.0",
+    "scripts": {
+        "prebuild": "cd backend && npm run build",
+        "build": "cd frontend && npm run build",
+        "start": "cd backend/built && node server.js"
+    }
+}
