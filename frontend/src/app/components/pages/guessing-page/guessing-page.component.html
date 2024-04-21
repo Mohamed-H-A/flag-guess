@@ -13,12 +13,12 @@
             <img [src]="country.flagUrl"/>
         </div>
         <p class="output">{{outputMessage}}</p>
-        <div *ngIf="canProceed()" >
+        <div *ngIf="canProceed() && lives === 0" >
             <a routerLink="/country/{{country.id}}" target="_blank">I've never heard of this country??🤨</a>
             <button (click)="reset()">Finish</button>
         </div>
         
-        <div class="input" *ngIf="!canProceed()">
+        <div class="input" *ngIf="lives !== 0">
             <input #s type="text" placeholder="What country is it..." (keyup.enter)="check(s.value); s.value=''" [value]=""/>
             <button (click)="check(s.value); s.value=''">Check</button>
         </div>

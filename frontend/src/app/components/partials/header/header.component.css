@@ -1,5 +1,6 @@
 .container {
-    border-bottom: 2px double #3aa45c;
+    border-bottom: 4px solid #3aa45c;
+    border-radius: 0.4rem;
     background: white;
     margin: 0 auto;
     display: flex;

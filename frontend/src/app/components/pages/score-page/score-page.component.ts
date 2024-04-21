@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { UserService } from '../../../services/user.service';
-import { User } from '../../../shared/models/user';
+import confetti from 'canvas-confetti';
 import { ScoreboardService } from '../../../services/scoreboard.service';
 import { Scoreboard } from '../../../shared/models/Scoreboard';
 import { CommonModule } from '@angular/common';
@@ -20,6 +19,13 @@ export class ScorePageComponent {
     scoreboardService.getAll().subscribe((scores) => {
       this.scoreboard = scores
     })
+    confetti({
+      angle: 270,
+      particleCount: 200,
+      spread: 200,
+      origin: { y: -0.3 },
+      ticks: 130
+    });
   }
 
   formatDate(dateInput: string): string {

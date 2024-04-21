@@ -1,6 +1,6 @@
-<app-search></app-search>
 <span class="header">Learn the flags!</span>
-<p>- Hover over flags to view in original aspect ratio
+<app-search></app-search>
+<p *ngIf="randomCountryId">- Hover over flags to view in original aspect ratio
     <a [routerLink]="randomCountry()" [ngStyle]="{'font-weight': 'bold'}">- Pick a random country to learn about</a>
 </p>
 <app-not-found [visible]="!countries || !countries.length" resetLinkText="Reset Search"></app-not-found>

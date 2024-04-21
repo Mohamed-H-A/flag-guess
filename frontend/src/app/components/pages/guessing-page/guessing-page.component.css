@@ -33,11 +33,12 @@
 
 .right .score {
     margin: 1rem;
-    color: #e1bf00;
+    font-size: 3rem;
+    color: #1879c9;
 }
 .right .lives {
     margin: 1rem;
-    color: #dc5800;
+    color: #ed9a00;
 }
 .right .add {
     margin: 1rem;
@@ -148,4 +149,3 @@ button:hover {
 .proceed input {
     width: 0;
 }
-    

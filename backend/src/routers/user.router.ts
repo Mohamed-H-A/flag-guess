@@ -39,7 +39,7 @@ router.post("/register", asyncHandler(
         const {name, username, password, highscore} = req.body;
         const user = await UserModel.findOne({username})
         if (user) {
-            res.status(HTTP_BAD_REQUEST).send("Username '" + username + "' is already in use")
+            res.status(HTTP_BAD_REQUEST).send({"message": "Username '" + username + "' is already in use"})
             return;
         } else {
             const encryptedPass = await bcrypt.hash(password, 10)

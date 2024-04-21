@@ -16,6 +16,7 @@ import { Observable } from 'rxjs';
 })
 export class HomeComponent {
   countries: Country[] = [];
+  randomCountryId!: string;
 
   constructor(private countryService: CountryService, activated: ActivatedRoute) {
     let countryObservable: Observable<Country[]>;
@@ -28,14 +29,15 @@ export class HomeComponent {
       }
       countryObservable.subscribe((serverCountries) => {
         this.countries = serverCountries;
+        if (!params['searchTerm']) {
+          this.randomCountryId = serverCountries[Math.floor(Math.random() * serverCountries.length)].id;
+        }
       })
     })
   }
 
   randomCountry() {
-    const index: number =
-        Math.floor(Math.random() * this.countries.length);
-    return '/country/' + this.countries[index].id
+    return '/country/' + this.randomCountryId
   }
 
 }

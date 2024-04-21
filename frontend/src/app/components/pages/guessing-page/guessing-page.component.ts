@@ -17,6 +17,7 @@ import { UserService } from '../../../services/user.service';
   templateUrl: './guessing-page.component.html',
   styleUrl: './guessing-page.component.css'
 })
+
 export class GuessingPageComponent implements OnInit{
 
   country!: Country
@@ -27,8 +28,16 @@ export class GuessingPageComponent implements OnInit{
   threshold = -2
   lives = this.totalLives
   score = 0
+  correctAudio: HTMLAudioElement;
+  incorrectAudio: HTMLAudioElement;
 
-  constructor(private countryService: CountryService, private userService: UserService, private scoreboardService: ScoreboardService, private router: Router) {  }
+  constructor(private countryService: CountryService, private userService: UserService, private scoreboardService: ScoreboardService, private router: Router) { 
+    this.correctAudio = new Audio();
+    this.correctAudio.src = 'assets/correct.mp3';
+    this.incorrectAudio = new Audio();
+    this.incorrectAudio.src = 'assets/incorrect.mp3';
+    this.correctAudio.volume = 0.5
+   }
   
   ngOnInit(): void {
     this.getRandomCountry()
@@ -51,14 +60,32 @@ export class GuessingPageComponent implements OnInit{
       this.scoreboardService.updateScoreboard(newScore).subscribe()
     }
   }
-  
+
+  flash() {
+    if(this.isCorrect) {
+        this.correctAudio.play()
+        document.body.style.backgroundColor = '#3aa45ca0';
+        setTimeout(() => {
+          document.body.style.backgroundColor = '#3aa45c00';
+        }, 200)
+      } else {
+        this.incorrectAudio.play()
+        document.body.style.backgroundColor = '#ff000090';
+        setTimeout(() => {
+          document.body.style.backgroundColor = '#ff000000';
+        }, 200)
+    }
+  }
+
   reset() {
     if (this.lives > 0) {
-      this.getRandomCountry()
       this.score += this.lives
       this.lives = this.totalLives
       this.outputMessage = ''
-      this.isCorrect = false
+      setTimeout(() => {
+        this.isCorrect = false
+        this.getRandomCountry()
+      }, 200)
     } else {
       this.router.navigateByUrl('/scoreboard')
     }
@@ -101,5 +128,6 @@ export class GuessingPageComponent implements OnInit{
         }
       }
     }
+    this.flash()
   }
 }
